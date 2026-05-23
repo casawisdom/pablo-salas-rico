@@ -568,11 +568,18 @@ body.es a[data-en]{display:none !important;}
   document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;c1.style.left=mx+'px';c1.style.top=my+'px';if(!ready){document.body.classList.add('cr');ready=true;}});
   (function loop(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;c2.style.left=rx+'px';c2.style.top=ry+'px';requestAnimationFrame(loop);})();
   // TOUCH TAP for ventures on mobile
+// First tap = activate/show description, second tap = follow link
 document.querySelectorAll('.vrow').forEach(function(row){
-  row.addEventListener('touchstart', function(){
-    document.querySelectorAll('.vrow').forEach(function(r){ r.classList.remove('touched'); });
-    row.classList.add('touched');
-  }, {passive:true});
+  row.addEventListener('click', function(e){
+    var isMobile = window.matchMedia('(pointer:coarse)').matches;
+    if(!isMobile) return; // desktop handles with CSS hover
+    if(!row.classList.contains('touched')){
+      e.preventDefault(); // block navigation on first tap
+      document.querySelectorAll('.vrow').forEach(function(r){ r.classList.remove('touched'); });
+      row.classList.add('touched');
+    }
+    // second tap: let the link navigate naturally
+  });
 });
 
 document.querySelectorAll('a,button,.stat,.pill,.vrow').forEach(function(el){
