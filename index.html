@@ -320,6 +320,24 @@ footer::after{content:'';position:absolute;top:0;left:88px;right:88px;height:1px
   .clink:hover{background:rgba(201,168,76,.04);}
 }
 
+/* ACTIVE STATE FOR MOBILE TOUCH */
+.vrow.active::before{transform:scaleY(1);}
+.vrow.active{background:rgba(201,168,76,.04);}
+.vrow.active .vrow-num{color:var(--gold);text-shadow:0 0 28px rgba(201,168,76,.65);}
+.vrow.active .vrow-circle{border-color:var(--gold);background:rgba(201,168,76,.1);}
+.vrow.active .vrow-cta-lbl{color:var(--gold);}
+.stat.active::before{transform:scaleX(1);}
+.stat.active{background:rgba(201,168,76,.04);}
+.stat.active .stat-n{text-shadow:0 0 50px rgba(201,168,76,.7),0 0 20px rgba(201,168,76,.4);}
+.pill.active::after{transform:scaleX(1);}
+.pill.active{background:#161210;}
+.pill.active .pill-n{color:var(--gold);text-shadow:0 0 28px rgba(201,168,76,.55);}
+.pill.active .pill-t{color:var(--white);}
+.clink.active::before{transform:scaleY(1);}
+.clink.active{background:rgba(201,168,76,.04);}
+.clink.active .cval{color:var(--white);}
+.clink.active .cicon{border-color:var(--gold);}
+
 /* LANG SYSTEM */
 [data-es]{display:none !important;}
 body.es [data-en]{display:none !important;}
@@ -586,8 +604,7 @@ body.es a[data-en]{display:none !important;}
   var mx=-200,my=-200,rx=-200,ry=-200,ready=false;
   document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;c1.style.left=mx+'px';c1.style.top=my+'px';if(!ready){document.body.classList.add('cr');ready=true;}});
   (function loop(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;c2.style.left=rx+'px';c2.style.top=ry+'px';requestAnimationFrame(loop);})();
-  // Mobile touch handled by CSS :active
-
+  
 document.querySelectorAll('a,button,.stat,.pill,.vrow').forEach(function(el){
     el.addEventListener('mouseenter',function(){c1.style.transform='translate(-50%,-50%) scale(2.5)';c2.style.transform='translate(-50%,-50%) scale(1.5)';c2.style.borderColor='rgba(201,168,76,.85)';});
     el.addEventListener('mouseleave',function(){c1.style.transform='translate(-50%,-50%) scale(1)';c2.style.transform='translate(-50%,-50%) scale(1)';c2.style.borderColor='rgba(201,168,76,.4)';});
@@ -596,6 +613,26 @@ document.querySelectorAll('a,button,.stat,.pill,.vrow').forEach(function(el){
 function setLang(l){document.body.classList.toggle('es',l==='es');document.getElementById('btn-en').classList.toggle('on',l==='en');document.getElementById('btn-es').classList.toggle('on',l==='es');}
 new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('go');});},{threshold:0.1}).observe&&document.querySelectorAll('.rv,.rvl,.rvr').forEach(function(el){new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('go');});},{threshold:0.1}).observe(el);});
 (function(){var l=document.getElementById('slight');if(!l)return;function u(){var s=window.scrollY||0;var d=document.documentElement.scrollHeight-window.innerHeight;var p=d>0?s/d:0;l.style.top=(window.innerHeight*(0.15+p*0.7))+'px';}window.addEventListener('scroll',u,{passive:true});u();})();
+
+// MOBILE TOUCH - adds .active class on touchstart, removes on touchend
+(function(){
+  function addTouch(selector){
+    document.querySelectorAll(selector).forEach(function(el){
+      el.addEventListener('touchstart', function(e){
+        // Remove active from siblings
+        document.querySelectorAll(selector).forEach(function(x){ x.classList.remove('active'); });
+        el.classList.add('active');
+      }, {passive:true});
+      el.addEventListener('touchend', function(){
+        setTimeout(function(){ el.classList.remove('active'); }, 400);
+      }, {passive:true});
+    });
+  }
+  addTouch('.vrow');
+  addTouch('.stat');
+  addTouch('.pill');
+  addTouch('.clink');
+})();
 </script>
 </body>
 </html/* CLOSING — full bleed both desktop and mobile, text bottom-left */
