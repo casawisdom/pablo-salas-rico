@@ -377,13 +377,21 @@ body.es a[data-en]{display:none !important;}
   .h-name{display:none;}
   .h-sep{display:none;}
   #hero-three-words{
-    display:flex;flex-direction:column;gap:4px;
-    margin-bottom:20px;
+    display:flex;flex-direction:row;
+    align-items:center;gap:12px;
+    margin-bottom:24px;
+    flex-wrap:nowrap;
   }
   .htw{
     font-family:'Cormorant Garamond',serif;
-    font-size:clamp(48px,13vw,72px);font-weight:600;
-    line-height:1;letter-spacing:-.01em;
+    font-size:clamp(22px,6vw,32px);font-weight:600;
+    line-height:1;letter-spacing:.04em;
+    white-space:nowrap;
+  }
+  .htw-dot{
+    width:5px;height:5px;background:var(--gold);
+    transform:rotate(45deg);flex-shrink:0;
+    box-shadow:0 0 8px rgba(201,168,76,.6);
   }
   .htw-1{color:var(--white);}
   .htw-2{color:var(--gold);}
@@ -474,7 +482,9 @@ body.es a[data-en]{display:none !important;}
     <div class="h-name"><span class="n1">Pablo</span><span class="n2">Salas Rico</span></div>
     <div id="hero-three-words">
       <div class="htw htw-1"><span data-en>Wisdom</span><span data-es>Sabiduría</span></div>
+      <div class="htw-dot"></div>
       <div class="htw htw-2"><span data-en>Purpose</span><span data-es>Propósito</span></div>
+      <div class="htw-dot"></div>
       <div class="htw htw-3"><span data-en>Legacy</span><span data-es>Legado</span></div>
     </div>
     <div class="h-sep"><div class="h-sep-l"></div><div class="h-sep-d"></div><div class="h-sep-r"></div></div>
