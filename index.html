@@ -18,6 +18,7 @@ body{background:var(--black);color:var(--white);font-family:'Montserrat',sans-se
 
 /* SCROLL LIGHT */
 #mobile-brand{display:none;}
+#hero-three-words{display:none;}
 #slight{position:fixed;width:900px;height:900px;border-radius:50%;pointer-events:none;z-index:1;left:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(201,168,76,.055) 0%,rgba(201,168,76,.018) 45%,transparent 70%);mix-blend-mode:screen;transition:top 1.4s cubic-bezier(.25,.46,.45,.94);will-change:top;}
 
 /* CURSOR desktop only */
@@ -373,7 +374,20 @@ body.es a[data-en]{display:none !important;}
   #hero-photo::after{background:linear-gradient(to top,rgba(7,7,7,.98) 0%,rgba(7,7,7,.7) 35%,rgba(7,7,7,.3) 70%,transparent 100%),linear-gradient(to bottom,rgba(7,7,7,.7) 0%,transparent 20%);}
   #hero-left{position:relative;z-index:2;padding:24px 24px 80px;justify-content:flex-end;}
   .eyebrow{display:none;}
-  .h-name{font-size:clamp(56px,14vw,80px);}
+  .h-name{display:none;}
+  .h-sep{display:none;}
+  #hero-three-words{
+    display:flex;flex-direction:column;gap:4px;
+    margin-bottom:20px;
+  }
+  .htw{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(48px,13vw,72px);font-weight:600;
+    line-height:1;letter-spacing:-.01em;
+  }
+  .htw-1{color:var(--white);}
+  .htw-2{color:var(--gold);}
+  .htw-3{color:var(--white);}
   .h-tag{font-size:18px;max-width:100%;}
   .h-btns{flex-direction:column;gap:12px;}
   .btn-p,.btn-s{display:block;text-align:center;padding:17px 28px;}
@@ -458,6 +472,11 @@ body.es a[data-en]{display:none !important;}
   <div id="hero-left">
     <div class="eyebrow"><div class="ey-bar"></div><div class="ey-txt">Entrepreneur · Strategist · Founder</div></div>
     <div class="h-name"><span class="n1">Pablo</span><span class="n2">Salas Rico</span></div>
+    <div id="hero-three-words">
+      <div class="htw htw-1"><span data-en>Wisdom</span><span data-es>Sabiduría</span></div>
+      <div class="htw htw-2"><span data-en>Purpose</span><span data-es>Propósito</span></div>
+      <div class="htw htw-3"><span data-en>Legacy</span><span data-es>Legado</span></div>
+    </div>
     <div class="h-sep"><div class="h-sep-l"></div><div class="h-sep-d"></div><div class="h-sep-r"></div></div>
     <div class="h-tag"><span data-en>With wisdom we build. With purpose we advance.<br>And with faith, we leave a <strong>legacy.</strong></span><span data-es>Con sabiduría construimos. Con propósito avanzamos.<br>Y con fe, dejamos un <strong>legado.</strong></span></div>
     <div class="h-btns">
