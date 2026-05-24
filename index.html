@@ -416,13 +416,22 @@ body.es a[data-en]{display:none !important;}
   #lang{top:16px;right:16px;}
   #mobile-brand{
     display:block;
-    position:fixed;top:16px;left:20px;
+    position:fixed;top:14px;left:20px;
     z-index:9000;
+  }
+  #mobile-brand .mb-name{
     font-family:'Cormorant Garamond',serif;
-    font-size:18px;font-weight:400;
-    color:var(--gold);
-    letter-spacing:.06em;
-    text-shadow:0 0 20px rgba(201,168,76,.3);
+    font-size:26px;font-weight:400;
+    color:var(--white);
+    letter-spacing:.05em;
+    line-height:1;
+  }
+  #mobile-brand .mb-role{
+    font-size:8px;font-weight:600;
+    letter-spacing:.22em;
+    color:rgba(201,168,76,.7);
+    text-transform:uppercase;
+    margin-top:4px;
   }
 }
 </style>
@@ -433,7 +442,10 @@ body.es a[data-en]{display:none !important;}
 <div id="c1"></div>
 <div id="c2"></div>
 
-<div id="mobile-brand">Pablo Salas</div>
+<div id="mobile-brand">
+  <div class="mb-name">Pablo Salas</div>
+  <div class="mb-role">Entrepreneur · Strategist · Founder</div>
+</div>
 <div id="lang">
   <button class="lb on" id="btn-en" onclick="setLang('en')">EN</button>
   <button class="lb" id="btn-es" onclick="setLang('es')">ES</button>
