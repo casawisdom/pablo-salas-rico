@@ -18,7 +18,11 @@ body{background:var(--black);color:var(--white);font-family:'Montserrat',sans-se
 
 /* SCROLL LIGHT */
 #mobile-brand{display:none;}
-#hero-three-words{display:flex;flex-direction:row;align-items:center;gap:10px;margin-bottom:24px;}
+.htw{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;white-space:nowrap;}
+.htw-dot{width:4px;height:4px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;opacity:.7;}
+.htw-1{color:var(--white);}
+.htw-2{color:var(--gold);}
+.htw-3{color:var(--white);}
 #slight{position:fixed;width:900px;height:900px;border-radius:50%;pointer-events:none;z-index:1;left:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(201,168,76,.055) 0%,rgba(201,168,76,.018) 45%,transparent 70%);mix-blend-mode:screen;transition:top 1.4s cubic-bezier(.25,.46,.45,.94);will-change:top;}
 
 /* CURSOR desktop only */
@@ -50,7 +54,7 @@ body{background:var(--black);color:var(--white);font-family:'Montserrat',sans-se
 .h-name .n1{display:block;color:var(--white);}
 .h-name .n2{display:block;font-weight:600;background:linear-gradient(110deg,var(--gold3) 0%,var(--gold) 28%,var(--gold2) 52%,var(--gold) 75%,var(--gold3) 100%);background-size:260% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 7s ease infinite 2s;}
 @keyframes shimmer{0%{background-position:100% 0}100%{background-position:-100% 0}}
-.h-sep{display:flex;align-items:center;gap:12px;margin-bottom:24px;opacity:0;animation:up .8s ease .6s forwards;}
+.h-sep{display:none;}
 .h-sep-l,.h-sep-r{height:1px;width:48px;}
 .h-sep-l{background:linear-gradient(to right,var(--gold),transparent);}
 .h-sep-r{background:linear-gradient(to left,var(--gold),transparent);}
@@ -381,20 +385,6 @@ body.es a[data-en]{display:none !important;}
     align-items:center;gap:10px;
     margin-bottom:24px;flex-wrap:nowrap;
   }
-  .htw{
-    font-family:'Montserrat',sans-serif;
-    font-size:10px;font-weight:600;
-    letter-spacing:.28em;text-transform:uppercase;
-    white-space:nowrap;
-  }
-  .htw-dot{
-    width:4px;height:4px;background:var(--gold);
-    transform:rotate(45deg);flex-shrink:0;
-    opacity:.7;
-  }
-  .htw-1{color:var(--white);}
-  .htw-2{color:var(--gold);}
-  .htw-3{color:var(--white);}
   .h-tag{font-size:18px;max-width:100%;}
   .h-btns{flex-direction:column;gap:12px;}
   .btn-p,.btn-s{display:block;text-align:center;padding:17px 28px;}
@@ -493,7 +483,7 @@ body.es a[data-en]{display:none !important;}
   </div>
   <div id="hero-right">
     <div id="hero-photo"></div>
-    <div class="hero-nametag"><div class="hnt-name">Pablo Salas Rico</div><div class="hnt-role"><span data-en>Entrepreneur · Founder · Strategist</span><span data-es>Empresario · Fundador · Estratega</span></div></div>
+  
   </div>
   <div id="scrollhint"><div class="sht"><div class="shb"></div></div><div class="shl"><span data-en>Scroll</span><span data-es>Desliza</span></div></div>
 </section>
