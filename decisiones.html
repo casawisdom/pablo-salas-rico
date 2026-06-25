@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Las 3 Decisiones — Pablo Salas Rico</title>
+  <meta name="description" content="Tres decisiones que todo hombre de fe debe tomar. Inspirado en la historia de José. Por Pablo Salas Rico." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #080808;
+      color: #F0EBE0;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+    .eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: #C9A84C;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(7rem, 20vw, 12rem);
+      font-weight: 600;
+      color: #E8C060;
+      line-height: 0.85;
+      margin-bottom: 0.2rem;
+    }
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.2rem, 4vw, 1.8rem);
+      font-weight: 600;
+      color: #FFFFFF;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .sub {
+      font-size: 0.85rem;
+      color: #8A8580;
+      margin-bottom: 2rem;
+    }
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: #C9A84C;
+      margin: 0 auto 2rem;
+      opacity: 0.6;
+    }
+    .quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      font-style: italic;
+      color: #C9A84C;
+      max-width: 480px;
+      line-height: 1.65;
+      margin-bottom: 2.5rem;
+    }
+    .form-wrap {
+      width: 100%;
+      max-width: 420px;
+    }
+    .form-desc {
+      font-size: 0.8rem;
+      color: #8A8580;
+      margin-bottom: 1.2rem;
+      line-height: 1.7;
+    }
+    input {
+      width: 100%;
+      padding: 0.85rem 1.1rem;
+      background: #0E0D0B;
+      border: 1px solid #3A3830;
+      color: #F0EBE0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      outline: none;
+      margin-bottom: 0.8rem;
+      transition: border-color 0.3s;
+    }
+    input:focus { border-color: #7A6230; }
+    input::placeholder { color: #3A3830; }
+    button {
+      width: 100%;
+      padding: 0.95rem;
+      background: #C9A84C;
+      border: none;
+      color: #080808;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover { background: #E8C060; }
+    .note {
+      font-size: 0.65rem;
+      color: #3A3830;
+      margin-top: 1rem;
+      letter-spacing: 0.04em;
+    }
+    .success {
+      display: none;
+      padding: 1.5rem;
+      border: 1px solid #7A6230;
+    }
+    .success h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      color: #C9A84C;
+      margin-bottom: 0.5rem;
+    }
+    .success p { font-size: 0.82rem; color: #8A8580; margin-bottom: 1rem; }
+    .btn-read {
+      display: inline-block;
+      padding: 0.9rem 2.2rem;
+      border: 1px solid #C9A84C;
+      color: #C9A84C;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .btn-read:hover { background: #C9A84C; color: #080808; }
+    footer {
+      position: fixed;
+      bottom: 1.5rem;
+      font-size: 0.65rem;
+      color: #3A3830;
+      letter-spacing: 0.08em;
+    }
+    footer a { color: #3A3830; text-decoration: none; }
+    footer a:hover { color: #C9A84C; }
+  </style>
+</head>
+<body>
+
+  <p class="eyebrow">Pablo Salas Rico · Guía Gratuita</p>
+  <div class="number">3</div>
+  <h1>Decisiones</h1>
+  <p class="sub">que todo hombre de fe debe tomar</p>
+  <div class="divider"></div>
+  <p class="quote">"La Palabra de Dios no es información.<br>No es conocimiento. <strong>ES PODER.</strong>"</p>
+
+  <div class="form-wrap">
+    <p class="form-desc">Escribe tu nombre y correo. Te abro la guía completa al instante.<br>Sin spam. Sin vueltas.</p>
+
+    <div id="form-container">
+      <input type="text" id="name" placeholder="Tu nombre" required />
+      <input type="email" id="email" placeholder="Tu correo electrónico" required />
+      <button onclick="handleSubmit()">Leer Las 3 Decisiones →</button>
+      <p class="note">Tu información es privada. No la compartimos con nadie.</p>
+    </div>
+
+    <div class="success" id="success">
+      <h3 id="success-name">¡Listo!</h3>
+      <p>Aquí están Las 3 Decisiones.<br>No las leas. Vívelas.</p>
+      <a href="/las3decisiones.html" class="btn-read" target="_blank">Abrir Las 3 Decisiones →</a>
+    </div>
+  </div>
+
+  <footer>
+    <a href="https://pablosalasrico.com">← pablosalasrico.com</a>
+  </footer>
+
+  <script>
+    function handleSubmit() {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      if (!name || !email) return;
+      document.getElementById('form-container').style.display = 'none';
+      const s = document.getElementById('success');
+      document.getElementById('success-name').textContent = '¡Listo, ' + name.split(' ')[0] + '!';
+      s.style.display = 'block';
+      // Aquí conectas ConvertKit/Mailchimp:
+      // fetch('TU_ENDPOINT', { method:'POST', body: JSON.stringify({name, email}) })
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') handleSubmit();
+    });
+  </script>
+
+</body>
+</html>
